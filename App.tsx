@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {Text, View} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import useCachedResources from './src/hooks/useCachedResources';
 import RootStackNav from './src/navigation/RootStackNav';
@@ -11,11 +12,11 @@ const App = ({}: IProps) => {
   const isLoadingComplete = useCachedResources();
   if (!isLoadingComplete) return;
   return (
-    <SafeAreaProvider style={{}}>
+    <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer>
         <RootStackNav />
       </NavigationContainer>
-    </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 };
 
