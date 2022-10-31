@@ -18,22 +18,25 @@ const DraggableBall2 = ({}: IProps) => {
   const startXY = useSharedValue({ x: 0, y: 0 });
 
   const animatedStyle = useAnimatedStyle(() => ({
-    backgroundColor: isPressed ? 'dodgerblue' : 'yellow',
+    backgroundColor: isPressed.value ? 'dodgerblue' : 'yellow',
     transform: [{ translateX: offset.value.x }, { translateY: offset.value.y }],
   }));
   // 제스쳐 핸들러
   const gesture = Gesture.Pan()
     .onBegin((e) => {
-      console.log('    onBegin ===== ', e);
+      isPressed.value = true;
     })
     .onUpdate((e) => {
-      console.log('    onUpdate ===== ', e);
+      offset.value = {
+        x: e.translationX + startXY.value.x,
+        y: e.translationY + startXY.value.y,
+      };
     })
     .onEnd((e) => {
-      console.log('    onEnd ===== ', e);
+      startXY.value = { x: offset.value.x, y: offset.value.y };
     })
     .onFinalize((e) => {
-      console.log('    onFinalize ===== ', e);
+      isPressed.value = false;
     });
 
   return (
