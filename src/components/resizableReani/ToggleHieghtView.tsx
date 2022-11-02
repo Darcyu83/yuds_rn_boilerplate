@@ -17,7 +17,7 @@ interface IProps {
   text?: string;
 }
 
-const _text = `In our previous example, the useAnimatedStyle Hook creates a worklet that links the Shared Value boxHeight with a component that uses boxHeight.value in its style properties. When giving React components properties, we must use the component version that we can animate. hen setting styles for the component, be sure to pass the styles as an array. The first element is an object containing all of the styles you would typically use, including height. The second element is the worklet that was defined earlier. Now, let’s combine all of the Reanimated tools that we’ve covered to create a simple grey box that expands and contracts when we press a button:`;
+export const tempText = `In our previous example, the useAnimatedStyle Hook creates a worklet that links the Shared Value boxHeight with a component that uses boxHeight.value in its style properties. When giving React components properties, we must use the component version that we can animate. hen setting styles for the component, be sure to pass the styles as an array. The first element is an object containing all of the styles you would typically use, including height. The second element is the worklet that was defined earlier. Now, let’s combine all of the Reanimated tools that we’ve covered to create a simple grey box that expands and contracts when we press a button:`;
 
 const ToggleHieghtView = ({ text }: IProps) => {
   const padding = 5;
@@ -86,7 +86,7 @@ const ToggleHieghtView = ({ text }: IProps) => {
               color: 'white',
             },
           ]}>
-          {text ? text : _text}
+          {text ? text : tempText}
         </Text>
       </Animated.View>
 

@@ -24,6 +24,12 @@ const Tab1 = ({}: IProps) => {
         }}
       />
       <Button
+        title="Expanding TextBox Screen 3"
+        onPress={() => {
+          navigation.navigate('Screen3');
+        }}
+      />
+      <Button
         title="Click to show View As Modal"
         color="teal"
         onPress={() => {
@@ -36,12 +42,6 @@ const Tab1 = ({}: IProps) => {
           navigation.navigate('NotFound');
         }}
       />
-      <Text
-        onPress={() => {
-          navigation.navigate('NotFound');
-        }}>
-        Not Found
-      </Text>
     </View>
   );
 };
