@@ -4,8 +4,9 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  withTiming,
 } from 'react-native-reanimated';
-import { CmnStyle } from '../styles/CommonStyle';
+import { CmnStyle } from '../../styles/CommonStyle';
 
 interface IProps {}
 
@@ -18,8 +19,11 @@ const DraggableBall2 = ({}: IProps) => {
   const startXY = useSharedValue({ x: 0, y: 0 });
 
   const animatedStyle = useAnimatedStyle(() => ({
-    backgroundColor: isPressed.value ? 'dodgerblue' : 'yellow',
-    transform: [{ translateX: offset.value.x }, { translateY: offset.value.y }],
+    backgroundColor: isPressed.value ? 'dodgerblue' : 'blue',
+    transform: [
+      { translateX: withTiming(offset.value.x) },
+      { translateY: withTiming(offset.value.y) },
+    ],
   }));
   // 제스쳐 핸들러
   const gesture = Gesture.Pan()
@@ -41,7 +45,9 @@ const DraggableBall2 = ({}: IProps) => {
 
   return (
     <GestureDetector gesture={gesture}>
-      <Animated.View style={[CmnStyle.ball, animatedStyle]} />
+      <Animated.View style={[CmnStyle.ball, animatedStyle]}>
+        <Text style={{ color: 'white', textAlign: 'center' }}>Timing</Text>
+      </Animated.View>
     </GestureDetector>
   );
 };

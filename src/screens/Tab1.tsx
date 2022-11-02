@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Text, View } from 'react-native';
-import DraggableBall from '../components/DraggableBall';
+import { Button, Text, View } from 'react-native';
+
 import useAppNavigation from '../hooks/useAppNavigation';
 
 interface IProps {}
@@ -10,26 +10,38 @@ const Tab1 = ({}: IProps) => {
   const navigation = useAppNavigation();
   return (
     <View style={{}}>
-      <Text
+      <Button
+        title="Draggable Balls Screen 1"
         onPress={() => {
           navigation.navigate('Screen1');
-        }}>
-        Click to show Screen 1
-      </Text>
-      <Text
+        }}
+      />
+      <Button
+        title="Expanding TextBox Screen 2"
+        color="tomato"
+        onPress={() => {
+          navigation.navigate('Screen2');
+        }}
+      />
+      <Button
+        title="Click to show View As Modal"
+        color="teal"
         onPress={() => {
           navigation.navigate('ViewAsModal');
-        }}>
-        Click to show View As Modal
-      </Text>
+        }}
+      />
+      <Button
+        title="  Not Found"
+        onPress={() => {
+          navigation.navigate('NotFound');
+        }}
+      />
       <Text
         onPress={() => {
           navigation.navigate('NotFound');
         }}>
         Not Found
       </Text>
-
-      <DraggableBall />
     </View>
   );
 };

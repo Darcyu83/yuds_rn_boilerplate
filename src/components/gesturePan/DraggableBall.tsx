@@ -6,7 +6,7 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import { CmnStyle } from '../styles/CommonStyle';
+import { CmnStyle } from '../../styles/CommonStyle';
 
 interface IProps {}
 
@@ -20,7 +20,7 @@ const DraggableBall = ({}: IProps) => {
       transform: [
         { translateX: offset.value.x },
         { translateY: offset.value.y },
-        { scale: withSpring(isPressed.value ? 1.2 : 1) },
+        { scale: isPressed.value ? 1.2 : 1 },
       ],
       backgroundColor: isPressed.value ? 'yellow' : 'blue',
     };
@@ -49,7 +49,9 @@ const DraggableBall = ({}: IProps) => {
 
   return (
     <GestureDetector gesture={getsture}>
-      <Animated.View style={[CmnStyle.ball, animatedStyles]} />
+      <Animated.View style={[CmnStyle.ball, animatedStyles]}>
+        <Text style={{ color: 'white', textAlign: 'center' }}>Pure</Text>
+      </Animated.View>
     </GestureDetector>
   );
 };
