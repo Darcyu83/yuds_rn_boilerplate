@@ -24,9 +24,15 @@ const Tab1 = ({}: IProps) => {
         }}
       />
       <Button
-        title="Expanding TextBox Screen 3"
+        title="Dragging TextBox Screen 3"
         onPress={() => {
           navigation.navigate('Screen3');
+        }}
+      />
+      <Button
+        title="Manual Gesture Screen 4"
+        onPress={() => {
+          navigation.navigate('Screen4');
         }}
       />
       <Button

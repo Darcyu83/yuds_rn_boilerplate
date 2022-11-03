@@ -8,4 +8,13 @@ export const CmnStyle = StyleSheet.create({
     backgroundColor: 'blue',
     alignSelf: 'center',
   },
+  pointer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: 'red',
+    position: 'absolute',
+    marginStart: -30,
+    marginTop: -30,
+  },
 });
